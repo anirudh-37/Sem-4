@@ -1,0 +1,53 @@
+class Node:
+    def __init__(self,val):
+        self.data = val
+        self.next = None
+class LL:
+    def __init__(self):
+        self.head = None
+    def insert(self,val):
+        x = Node(val)
+        if self.head is None:
+            self.head = x
+            return 
+        last = self.head
+        while(last.next):
+            last = last.next
+        last.next = x
+        
+    def delete(self,val):
+        temp = self.head
+        if(temp.data == val):
+            self.head = self.head.next
+            return
+        prev = None
+        while(temp):
+            if(temp.data == val):
+                break
+            prev = temp
+            temp = temp.next
+        prev.next = temp.next
+        temp = None
+        
+                
+            
+        
+        
+        
+        
+        
+    def printlist(self):
+        temp = self.head
+        while(temp):
+            print(temp.data,end = " -> ")
+            temp = temp.next
+            
+
+if __name__ == '__main__':
+    llist = LL()
+    llist.insert(1)
+    llist.insert(2)
+    llist.insert(3)
+    llist.insert(4)
+    llist.delete(1)
+    llist.printlist()
